@@ -12,13 +12,25 @@
 
 # Author: Rodrigo De Martino Ucedo
 
-number = int(input("Please enter a positive integer: "))
-print (number, end=" ") # end=" " to print number on line
-while number != 1:
-    if number % 2 == 0:
-        number = number // 2
-        print (number, end=" ") # end=" " to print number on line
-    else: 
-        number = 3 * number +1
-        print (number, end=" ") # end=" " to print number on line
-print (" ") # " " to print number on line without %
+goodinput = False
+while not goodinput:
+    try:
+        number = int(input("Please enter a positive integer: "))
+        if number > 0:
+            goodinput = True
+            print (number, end=" ") # end=" " to print number on line
+        else:
+            print ("That's not a positive number.")
+    except ValueError:
+        print ("That's not a positive number.") 
+else:
+    while number != 1:
+        if number % 2 == 0:
+            number = number // 2
+            print (number, end=" ") # end=" " to print number on line
+        else: 
+            number = 3 * number +1
+            print (number, end=" ") # end=" " to print number on line
+    print (" ") # " " to print number on line without %
+
+    # Reference: Stackoverflow (https://stackoverflow.com/questions/26198131/check-if-input-is-positive-integer).
